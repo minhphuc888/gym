@@ -1,7 +1,7 @@
 {
   "name": "Gym Schedule",
   "short_name": "GymApp",
-  "start_url": "/gym",
+  "start_url": "/gym/index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#1f2937",
