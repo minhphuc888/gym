@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lịch tập Gym</title>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+<div class="max-w-5xl mx-auto p-4" x-data="gymSchedule()">
+  <h1 class="text-3xl font-bold mb-6 text-center">Lịch tập Gym 5 buổi</h1>
+
+  <template x-for="(day, index) in schedule" :key="index">
+    <div class="mb-4 bg-white shadow rounded">
+      <button @click="day.open = !day.open" class="w-full px-4 py-2 text-left flex justify-between items-center">
+        <span class="font-semibold" x-text="day.name"></span>
+        <span x-text="day.open ? '-' : '+' " class="text-xl font-bold"></span>
+      </button>
+      <div x-show="day.open" class="px-4 py-2 border-t space-y-4">
+        <template x-for="(exercise, eIndex) in day.exercises" :key="eIndex">
+          <div x-data="{ count: 0 }" class="flex items-center space-x-4">
+            <img :src="exercise.gif" :alt="exercise.name" class="w-24 h-24 object-cover rounded">
+            <div class="flex-1">
+              <h3 class="font-semibold" x-text="exercise.name + ' (' + exercise.sets + ')'"></h3>
+              <div class="flex items-center space-x-2 mt-2">
+                <button @click="count--" class="bg-red-500 text-white px-2 py-1 rounded">-</button>
+                <span x-text="count" class="w-6 text-center"></span>
+                <button @click="count++" class="bg-green-500 text-white px-2 py-1 rounded">+</button>
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+    </div>
+  </template>
+</div>
+
+<script>
+function gymSchedule() {
+  return {
+    schedule: [
+      {
+        name: "Thứ 2 – Ngực + Tay sau (Chest – Triceps)",
+        open: false,
+        exercises: [
+          { name: "Bench Press", sets: "3-4 sets x 10-12 reps", gif: "https://burnfit.io/wp-content/uploads/2023/11/RM_BB_DL.gif" },
+          { name: "Incline Dumbbell Press", sets: "3-4 sets x 10-12 reps", gif: "https://burnfit.io/wp-content/uploads/2023/11/RM_BB_DL.gif" },
+          { name: "Chest Fly", sets: "3 sets x 12-15 reps", gif: "https://burnfit.io/wp-content/uploads/2023/11/RM_BB_DL.gif" },
+          { name: "Triceps Pushdown", sets: "3 sets x 12-15 reps", gif: "https://burnfit.io/wp-content/uploads/2023/11/RM_BB_DL.gif" },
+          { name: "Overhead Triceps Extension", sets: "3 sets x 12-15 reps", gif: "https://burnfit.io/wp-content/uploads/2023/11/RM_BB_DL.gif" }
+        ]
+      },
+      {
+        name: "Thứ 3 – Lưng + Tay trước (Back – Biceps)",
+        open: false,
+        exercises: [
+          { name: "Lat Pulldown hoặc Pull-up", sets: "3-4 sets x 10-12 reps", gif: "https://burnfit.io/wp-content/uploads/2023/11/RM_BB_DL.gif" },
+          { name: "Seated Row", sets: "3 sets x 10-12 reps", gif: "https://burnfit.io/wp-content/uploads/2023/11/RM_BB_DL.gif" },
+          { name: "Single-arm Dumbbell Row", sets: "3 sets x 10-12 reps", gif: "https://burnfit.io/wp-content/uploads/2023/11/RM_BB_DL.gif" },
+          { name: "Barbell Curl", sets: "3 sets x 12-15 reps", gif: "https://burnfit.io/wp-content/uploads/2023/11/RM_BB_DL.gif" },
+          { name: "Hammer Curl", sets: "3 sets x 12-15 reps", gif: "https://burnfit.io/wp-content/uploads/2023/11/RM_BB_DL.gif" }
+        ]
+      },
+      {
+        name: "Thứ 4 – Chân (Legs)",
+        open: false,
+        exercises: [
+          { name: "Squat", sets: "3-4 sets x 10-12 reps", gif: "https://burnfit.io/wp-content/uploads/2023/11/RM_BB_DL.gif" },
+          { name: "Leg Press", sets: "3 sets x 10-12 reps", gif: "https://burnfit.io/wp-content/uploads/2023/11/RM_BB_DL.gif" },
+          { name: "Romanian Deadlift", sets: "3 sets x 10-12 reps", gif: "https://burnfit.io/wp-content/uploads/2023/11/RM_BB_DL.gif" },
+          { name: "Lunges", sets: "3 sets x 12-15 reps mỗi chân", gif: "https://burnfit.io/wp-content/uploads/2023/11/RM_BB_DL.gif" },
+          { name: "Leg Extension / Leg Curl", sets: "3 sets x 12-15 reps", gif: "https://burnfit.io/wp-content/uploads/2023/11/RM_BB_DL.gif" }
+        ]
+      },
+      {
+        name: "Thứ 5 – Vai + Core (Shoulders + Core)",
+        open: false,
+        exercises: [
+          { name: "Overhead Press", sets: "3-4 sets x 10-12 reps", gif: "https://burnfit.io/wp-content/uploads/2023/11/RM_BB_DL.gif" },
+          { name: "Lateral Raise", sets: "3 sets x 12-15 reps", gif: "https://burnfit.io/wp-content/uploads/2023/11/RM_BB_DL.gif" },
+          { name: "Front Raise", sets: "3 sets x 12-15 reps", gif: "https://burnfit.io/wp-content/uploads/2023/11/RM_BB_DL.gif" },
+          { name: "Rear-delt Fly", sets: "3 sets x 12-15 reps", gif: "https://burnfit.io/wp-content/uploads/2023/11/RM_BB_DL.gif" },
+          { name: "Plank / Cable Woodchop", sets: "3 sets x 30-60 giây", gif: "https://burnfit.io/wp-content/uploads/2023/11/RM_BB_DL.gif" }
+        ]
+      },
+      {
+        name: "Thứ 6 – Full Body (tổng hợp)",
+        open: false,
+        exercises: [
+          { name: "Deadlift hoặc Squat", sets: "3-4 sets x 8-10 reps", gif: "https://burnfit.io/wp-content/uploads/2023/11/RM_BB_DL.gif" },
+          { name: "Bench Press nhẹ", sets: "3 sets x 10-12 reps", gif: "https://burnfit.io/wp-content/uploads/2023/11/RM_BB_DL.gif" },
+          { name: "Row nhẹ", sets: "3 sets x 10-12 reps", gif: "https://burnfit.io/wp-content/uploads/2023/11/RM_BB_DL.gif" },
+          { name: "Một bài tay + một bài vai tùy chọn", sets: "3 sets x 12-15 reps", gif: "https://burnfit.io/wp-content/uploads/2023/11/RM_BB_DL.gif" }
+        ]
+      },
+      {
+        name: "Thứ 7 & Chủ nhật – Nghỉ / Giãn cơ nhẹ",
+        open: false,
+        exercises: [
+          { name: "Nghỉ / Giãn cơ nhẹ", sets: "Không cardio", gif: "https://burnfit.io/wp-content/uploads/2023/11/RM_BB_DL.gif" }
+        ]
+      }
+    ]
+  }
+}
+</script>
+
+</body>
+</html>
