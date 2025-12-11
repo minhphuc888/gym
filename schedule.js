@@ -1,83 +1,87 @@
- const schedule = [
-      {
-        name: "Thứ 2 – Ngực + Tay sau (Chest – Triceps)",
-        open: false,
-        day: 2 , 
-        exercises: [
-          { name: "Bench Press", sets: "3-4 sets x 10-12 reps", gif: "imgs/SPOTO_BP.gif" },
-          { name: "Incline Dumbbell Press", sets: "3-4 sets x 10-12 reps", gif: "imgs/DB_INC_BP.gif" },
-          { name: "Chest Fly", sets: "3 sets x 12-15 reps", gif: "imgs/PEC_DECK_MC.gif" },
-          { name: "Standing Cable Fly", sets: "3 sets x 12-15 reps", gif: "imgs/STD_CABLE_FLY.gif" },
-          { name: "Triceps Pushdown", sets: "3 sets x 12-15 reps", gif: "imgs/CABLE_PUSH_DOWN.gif" },
-          { name: "Overhead Triceps Extension", sets: "3 sets x 12-15 reps", gif: "imgs/DB_TRI_EXT.gif" }
-        ]
-      },
-      {
-        name: "Thứ 3 – Lưng + Tay trước (Back – Biceps)",
-        open: false,
-        day: 3, 
-        exercises: [
-          { name: "Lat Pulldown", sets: "3-4 sets x 10-12 reps", gif: "imgs/LAT_PULL_DOWN.gif" },
-          { name: "Seated Row", sets: "3 sets x 10-12 reps", gif: "imgs/SEATED_CABLE_ROW.gif" },
-          { name: "Single-arm Dumbbell Row", sets: "3 sets x 10-12 reps", gif: "imgs/OA_DB_ROW.gif" },
-          { name: "Barbell Curl", sets: "3 sets x 12-15 reps", gif: "imgs/BB_PREA_CURL.gif" },
-          { name: "Hammer Curl", sets: "3 sets x 12-15 reps", gif: "imgs/CABLE_HAM_CURL.gif" },
-              { name: "High Row Machine", sets: "3 sets x 12-15 reps", gif: "imgs/HIGH_ROW_MC.gif" }
-        ]
-      },
-      {
-        name: "Thứ 4 – Chân (Legs)",
-        open: false,
-        day: 4, 
-        exercises: [
-          { name: "Squat", sets: "3-4 sets x 10-12 reps", gif: "imgs/BB_BSQT.gif" },
-          { name: "Leg Press", sets: "3 sets x 10-12 reps", gif: "imgs/LEG_PRESS.gif" },
-          { name: "Romanian Deadlift", sets: "3 sets x 10-12 reps", gif: "imgs/RM_BB_DL.gif" },
-          { name: "Lunges", sets: "3 sets x 12-15 reps mỗi chân", gif: "imgs/DB_LUNGE.gif" },
-          { name: "Leg Extension", sets: "3 sets x 12-15 reps", gif: "imgs/LGE_EXT.gif" },
-          { name: "Leg Curl", sets: "3 sets x 12-15 reps", gif: "imgs/LEG_CURL.gif" }
-        ]
-      },
-      {
-        name: "Thứ 5 – Vai + Core (Shoulders + Core)",
-        open: false,
-        day: 5, 
-        exercises: [
-          { name: "Overhead Press", sets: "3-4 sets x 10-12 reps", gif: "imgs/BB_PRESS.gif" },
-          { name: "Lateral Raise", sets: "3 sets x 12-15 reps", gif: "imgs/DB_LAT_RAISE.gif" },
-          { name: "Front Raise", sets: "3 sets x 12-15 reps", gif: "imgs/DB_F_RAISE.gif" },
-          { name: "Rear-delt Fly", sets: "3 sets x 12-15 reps", gif: "imgs/REV_PEC_DECK_MC.gif" },
-          { name: "Plank", sets: "3 sets x 30-60 giây", gif: "imgs/PLANK.gif" },
-          { name: "Cable Woodchop", sets: "3 sets x 30-60 giây", gif: "imgs/CABLE_TWIST.gif" },
-          
-            
-        ]
-      },
-      {
-        name: "Thứ 6 – Full Body (tổng hợp)",
-        open: false,
-        day: 6, 
-        exercises: [
-          { name: "Deadlift hoặc Squat", sets: "3-4 sets x 8-10 reps", gif: "imgs/RM_BB_DL.gif" },
-          { name: "Bench Press", sets: "3 sets x 10-12 reps", gif: "imgs/SPOTO_BP.gif" },
-          { name: "Row", sets: "3 sets x 10-12 reps", gif: "imgs/MC_LOW.gif" },
-          { name: "High Row Machine", sets: "3 sets x 12-15 reps", gif: "imgs/HIGH_ROW_MC.gif" }
-        ]
-      },
-      {
-        name: "Thứ 7 & Chủ nhật – Core",
-        open: false,
-        day: 7, 
-        exercises: [
-            { name: "Dumbbell Side Bend", sets: "3 sets x 30-60 giây", gif: "imgs/DB_SIDE_BEND.gif" },
-            { name: "Mountain Climbers", sets: "3 sets x 30-60 giây", gif: "imgs/MOUNT_CLIMB.gif" },
-            { name: "Crunches", sets: "3 sets x 30-60 giây", gif: "imgs/CRUNCH.gif" },
-            { name: "Glute Bridge", sets: "3 sets x 30-60 giây", gif: "imgs/GLUTE_BRDG.gif" },
-            { name: "Reverse Crunches", sets: "3 sets x 30-60 giây", gif: "imgs/ABS_AIR_BIKE.gif" },
-            { name: "Russian Twist", sets: "3 sets x 30-60 giây", gif: "imgs/RUS_TWIST.gif" },
-        ]
-      }
+const schedule = [
+  {
+    name: "Thứ 2 – Ngực + Tay sau (Chest – Triceps)",
+    open: false,
+    day: 2,
+    exercises: [
+      { index: 1, name: "Bench Press", sets: "3-4 sets x 10-12 reps", gif: "imgs/SPOTO_BP.gif" },
+      { index: 2, name: "Incline Dumbbell Press", sets: "3-4 sets x 10-12 reps", gif: "imgs/DB_INC_BP.gif" },
+      { index: 3, name: "Chest Fly", sets: "3 sets x 12-15 reps", gif: "imgs/PEC_DECK_MC.gif" },
+      { index: 4, name: "Standing Cable Fly", sets: "3 sets x 12-15 reps", gif: "imgs/STD_CABLE_FLY.gif" },
+      { index: 5, name: "Triceps Pushdown", sets: "3 sets x 12-15 reps", gif: "imgs/CABLE_PUSH_DOWN.gif" },
+      { index: 6, name: "Overhead Triceps Extension", sets: "3 sets x 12-15 reps", gif: "imgs/DB_TRI_EXT.gif" }
     ]
+  },
+
+  {
+    name: "Thứ 3 – Lưng + Tay trước (Back – Biceps)",
+    open: false,
+    day: 3,
+    exercises: [
+      { index: 1, name: "Lat Pulldown", sets: "3-4 sets x 10-12 reps", gif: "imgs/LAT_PULL_DOWN.gif" },
+      { index: 2, name: "Seated Row", sets: "3 sets x 10-12 reps", gif: "imgs/SEATED_CABLE_ROW.gif" },
+      { index: 3, name: "High Row Machine", sets: "3 sets x 12-15 reps", gif: "imgs/HIGH_ROW_MC.gif" },
+      { index: 4, name: "Single-arm Dumbbell Row", sets: "3 sets x 10-12 reps", gif: "imgs/OA_DB_ROW.gif" },
+      { index: 5, name: "Barbell Curl", sets: "3 sets x 12-15 reps", gif: "imgs/BB_PREA_CURL.gif" },
+      { index: 6, name: "Hammer Curl", sets: "3 sets x 12-15 reps", gif: "imgs/CABLE_HAM_CURL.gif" }
+    ]
+  },
+
+  {
+    name: "Thứ 4 – Chân (Legs)",
+    open: false,
+    day: 4,
+    exercises: [
+      { index: 1, name: "Squat", sets: "3-4 sets x 10-12 reps", gif: "imgs/BB_BSQT.gif" },
+      { index: 2, name: "Romanian Deadlift", sets: "3 sets x 10-12 reps", gif: "imgs/RM_BB_DL.gif" },
+      { index: 3, name: "Leg Press", sets: "3 sets x 10-12 reps", gif: "imgs/LEG_PRESS.gif" },
+      { index: 4, name: "Lunges", sets: "3 sets x 12-15 reps mỗi chân", gif: "imgs/DB_LUNGE.gif" },
+      { index: 5, name: "Leg Extension", sets: "3 sets x 12-15 reps", gif: "imgs/LGE_EXT.gif" },
+      { index: 6, name: "Leg Curl", sets: "3 sets x 12-15 reps", gif: "imgs/LEG_CURL.gif" }
+    ]
+  },
+
+  {
+    name: "Thứ 5 – Vai + Core (Shoulders + Core)",
+    open: false,
+    day: 5,
+    exercises: [
+      { index: 1, name: "Overhead Press", sets: "3-4 sets x 10-12 reps", gif: "imgs/BB_PRESS.gif" },
+      { index: 2, name: "Lateral Raise", sets: "3 sets x 12-15 reps", gif: "imgs/DB_LAT_RAISE.gif" },
+      { index: 3, name: "Front Raise", sets: "3 sets x 12-15 reps", gif: "imgs/DB_F_RAISE.gif" },
+      { index: 4, name: "Rear-delt Fly", sets: "3 sets x 12-15 reps", gif: "imgs/REV_PEC_DECK_MC.gif" },
+      { index: 5, name: "Cable Woodchop", sets: "3 sets x 30-60 giây", gif: "imgs/CABLE_TWIST.gif" },
+      { index: 6, name: "Plank", sets: "3 sets x 30-60 giây", gif: "imgs/PLANK.gif" }
+    ]
+  },
+
+  {
+    name: "Thứ 6 – Full Body (tổng hợp)",
+    open: false,
+    day: 6,
+    exercises: [
+      { index: 1, name: "Deadlift hoặc Squat", sets: "3-4 sets x 8-10 reps", gif: "imgs/RM_BB_DL.gif" },
+      { index: 2, name: "Row", sets: "3 sets x 10-12 reps", gif: "imgs/MC_LOW.gif" },
+      { index: 3, name: "Bench Press", sets: "3 sets x 10-12 reps", gif: "imgs/SPOTO_BP.gif" },
+      { index: 4, name: "High Row Machine", sets: "3 sets x 12-15 reps", gif: "imgs/HIGH_ROW_MC.gif" }
+    ]
+  },
+
+  {
+    name: "Thứ 7 & Chủ nhật – Core",
+    open: false,
+    day: 7,
+    exercises: [
+      { index: 1, name: "Crunches", sets: "3 sets x 30-60 giây", gif: "imgs/CRUNCH.gif" },
+      { index: 2, name: "Reverse Crunches", sets: "3 sets x 30-60 giây", gif: "imgs/ABS_AIR_BIKE.gif" },
+      { index: 3, name: "Russian Twist", sets: "3 sets x 30-60 giây", gif: "imgs/RUS_TWIST.gif" },
+      { index: 4, name: "Mountain Climbers", sets: "3 sets x 30-60 giây", gif: "imgs/MOUNT_CLIMB.gif" },
+      { index: 5, name: "Glute Bridge", sets: "3 sets x 30-60 giây", gif: "imgs/GLUTE_BRDG.gif" },
+      { index: 6, name: "Dumbbell Side Bend", sets: "3 sets x 30-60 giây", gif: "imgs/DB_SIDE_BEND.gif" }
+    ]
+  }
+];
+
 
 const container = document.getElementById("gym-schedule");
 
